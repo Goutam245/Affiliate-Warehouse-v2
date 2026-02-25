@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 43% 4%;
+    --foreground: 0 0% 100%;
+    --card: 231 38% 8%;
+    --card-foreground: 0 0% 100%;
+    --popover: 231 38% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 263 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 258 90% 66%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 246 12% 48%;
+    --muted-foreground: 255 47% 81%;
+    --accent: 157 100% 51%;
+    --accent-foreground: 225 43% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 263 30% 20%;
+    --input: 263 30% 15%;
+    --ring: 263 83% 58%;
+    --radius: 0.75rem;
+    --silver: 233 46% 94%;
+    --warm-white: 248 100% 97%;
+    --text-secondary: 255 47% 81%;
+    --text-muted: 246 12% 48%;
+    --mint: 157 100% 51%;
+    --sidebar-background: 231 38% 8%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 263 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 258 90% 66%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 263 30% 20%;
+    --sidebar-ring: 263 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Sora', sans-serif;
+  }
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  .font-mono-accent {
+    font-family: 'Space Grotesk', monospace;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(263 83% 58%), hsl(271 91% 65%), hsl(157 100% 51%));
+  }
+  .text-gradient-purple {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(263 83% 58%), hsl(271 91% 65%));
+  }
+  .bg-gradient-purple {
+    background: linear-gradient(135deg, hsl(263 83% 58%), hsl(271 91% 65%));
+  }
+  .bg-gradient-purple-wide {
+    background: linear-gradient(135deg, hsl(263 83% 48%), hsl(271 91% 55%), hsl(258 90% 66%));
+  }
+  .glass {
+    background: rgba(124, 58, 237, 0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  .glass-card {
+    background: rgba(13, 15, 28, 0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+  }
+  .glass-card-hover:hover {
+    border-color: rgba(124, 58, 237, 0.6);
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+  }
+  .glow-purple {
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.4);
+  }
+  .glow-mint {
+    box-shadow: 0 0 30px rgba(6, 255, 165, 0.3);
+  }
+  .border-glow {
+    border: 1px solid rgba(124, 58, 237, 0.3);
+  }
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, hsl(263 83% 58%), hsl(271 91% 65%), hsl(157 100% 51%));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-10px) translateX(-10px); }
+  75% { transform: translateY(-30px) translateX(5px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-40px) scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
